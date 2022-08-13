@@ -207,10 +207,6 @@
   .profile {
     display: flex;
   }
-  .profile__name {
-    font-size: 32px;
-    line-height: 38px;
-  }
   .profile__info {
     grid-template-columns: minmax(auto, 228px) auto;
     grid-gap: 5px 6px;
@@ -239,6 +235,6 @@
 }
 @media screen and (max-width: 1140px) {
   .profile__section {
-    width: calc(100%-40px);
+    width: calc(100% - 40px);
   }
 }
