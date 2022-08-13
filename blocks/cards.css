@@ -1,0 +1,17 @@
+.cards {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29.05px;
+  font-family: "Inter", Arial, sans-serif;
+}
+.cards__list {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 282px);
+  grid-gap: 20px 17px;
+  padding: 0;
+}
+.cards__photo {
+  width: 282px;
+  min-height: 282px;
+}
