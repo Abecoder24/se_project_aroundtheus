@@ -1,3 +1,7 @@
+@font-face {
+  src: url(../fonts/Inter-VariableFont_slnt\,wght.ttf)
+  font-family: 'Inter', sans-serif;
+}
 .page {
   background-color: black;
   color: white;
@@ -72,7 +76,7 @@
   margin-left: 30px;
 }
 .profile__paragraph {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
@@ -94,7 +98,7 @@
   font-size: 24px;
   font-weight: 900;
   line-height: 29.05px;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 .cards__list {
   display: grid;
@@ -141,7 +145,7 @@
   border: none;
 }
 .footer {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 18px;
   line-height: 22px;
   font-weight: 400;
@@ -202,7 +206,7 @@
     font-size: 14px;
     line-height: 17px;
     width: 282px;
-    font-family: "Inter", Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 }
 @media screen and (max-width: 585px) {
@@ -238,5 +242,7 @@
 @media screen and (max-width: 1140px) {
   .profile__section {
     width: calc(100% - 40px);
+  }
+  .profile__info {
   }
 }
