@@ -23,6 +23,8 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  font-weight: 900;
+  margin: 0;
 }
 .card__like-button {
   background: transparent url(../images/heart.svg) center no-repeat;
