@@ -20,6 +20,7 @@
   width: 24px;
   height: 24px;
   margin-top: 15px;
+  border: 1px solid #ffffff;
 }
 .profile__image {
   width: 120px;
@@ -56,6 +57,7 @@
   height: 50px;
   margin-left: auto;
   padding: 0;
+  border: 2px solid #ffffff;
 }
 @media screen and (max-width: 480px) {
   .profile {
