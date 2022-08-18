@@ -4,6 +4,10 @@
   flex-direction: column;
   overflow: hidden;
 }
+.card__photo {
+  width: 282px;
+  height: 282px;
+}
 .card__heart {
   width: 21px;
   height: 18px;
@@ -25,10 +29,16 @@
   overflow: hidden;
   font-weight: 900;
   margin: 0;
+  font-family: "Inter", sans-serif;
 }
 .card__like-button {
   background: transparent url(../images/heart.svg) center no-repeat;
   width: 21px;
   height: 18px;
   border: none;
+  cursor: pointer;
+  transition: 0.8s;
+}
+.card__like-button:hover {
+  opacity: 0.5;
 }
