@@ -14,3 +14,8 @@
   margin-top: 0;
   margin-bottom: 0;
 }
+@media screen and (max-width: 480px) {
+  .cards {
+    margin-top: 36px;
+  }
+}
