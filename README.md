@@ -1,6 +1,9 @@
 # Project 3: Around The U.S.
 
-### Overview
+This project dives deep into adaptive or responsive design.
+By using media queries, the design is meant to adjust and fit its contents whether the screen is being view from a mobile phone or desktop.
+<img src="./images/screen-shot.png">
+https://Abecoder24.github.io/se_project_aroundtheus
 
 - Intro
 - Figma

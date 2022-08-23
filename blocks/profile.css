@@ -75,14 +75,6 @@
 }
 
 @media screen and (max-width: 480px) {
-  .cards {
-    margin-top: 36px;
-  }
-  .content {
-    padding-left: 19px;
-    padding-right: 19px;
-  }
-
   .profile {
     flex-direction: column;
   }
@@ -124,26 +116,6 @@
     width: 18px;
     height: 18px;
     margin-top: 0;
-  }
-
-  .footer__title {
-    line-height: 17px;
-    font-family: "Inter", sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    margin: 0;
-  }
-  .footer {
-    margin: auto;
-    margin-top: 48px;
-    padding-bottom: 36px;
-    padding-left: 19px;
-    padding-right: 19px;
-  }
-  .header__logo {
-    margin-bottom: 32px;
-    padding-left: 19px;
-    padding-right: 19px;
   }
 }
 @media screen and (max-width: 585px) {
