@@ -109,7 +109,6 @@
     width: 100%;
     margin: 0;
     margin-top: 36px;
-    margin-bottom: 36px;
   }
   .profile__button {
     margin-left: 10px;
@@ -128,7 +127,7 @@
   }
 
   .profile__name {
-    font-size: 16px;
+    font-size: 22px;
     line-height: 16px;
   }
   .profile__image {
@@ -137,6 +136,6 @@
 }
 @media screen and (max-width: 1140px) {
   .profile__section {
-    width: calc(100% - 40px);
+    max-width: calc(100% - 28px);
   }
 }
