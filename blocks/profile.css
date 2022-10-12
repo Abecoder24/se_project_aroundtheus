@@ -55,6 +55,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  max-width: 415px;
 }
 .profile__plus-button {
   background-image: url(../images/plus\ button.png);
