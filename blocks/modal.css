@@ -1,0 +1,9 @@
+.modal {
+  width: 430px;
+  height: 330px;
+  border-radius: 10px;
+  background-color: white;
+}
+.modal__close {
+  background-color: transparent;
+}
