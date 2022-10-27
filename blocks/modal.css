@@ -1,9 +1,59 @@
 .modal {
-  width: 430px;
-  height: 330px;
-  border-radius: 10px;
-  background-color: white;
+  top: 0px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  background: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  display: none;
+  align-items: center;
+  justify-content: center;
 }
 .modal__close {
-  background-color: transparent;
+  color: #ffffff;
+  position: absolute;
+  top: -35px;
+  right: -32px;
+}
+.modal__heading {
+  font-size: 24px;
+  font-family: inter;
+  font-weight: 900;
+  line-height: 29.05px;
+  color: black;
+  margin: 0;
+  margin-bottom: 54px;
+  margin-left: 36px;
+  margin-top: 34px;
+}
+.modal__container {
+  max-width: 430px;
+  width: 100%;
+  min-height: 323px;
+  background-color: white;
+  position: relative;
+  border-radius: 10px;
+  padding: 34px 36px;
+}
+.modal__input {
+  width: 100%;
+  margin: 0 auto 48px auto;
+  width: 358px;
+  height: 27px;
+}
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+.modal__save-button {
+  height: 50.15px;
+  width: 358px;
+  margin: auto;
+  background-color: black;
+  color: white;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 36px;
+}
+.modal__opened {
+  display: flex;
 }
