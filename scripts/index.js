@@ -1,18 +1,44 @@
-let initialCards = [{name: "Yosemite Valley",
-link:"../images/yosemite-valley.jpg"},
-{name:"Lake Louise", link: "../images/lake-louise.png"},
-{name:"Bald Mountains", link: "../images/bald-mountains.png"}, 
-{name:"Latemar", link:"../images/latemar.png"}, 
-{name: "Vanoise National Park", link: "../images/vanoise-national-park.jpg"}, 
-{name: "Lago di Braies", link: "../images/lago-di-braise.png"}];
- 
-const profileCloseButton = document.querySelector(".modal__close")
- const profileEditButton = document.querySelector(".profile__button");
- const modal = document.querySelector(".modal");
+let initialCards = [
+  { name: "Yosemite Valley", link: "./images/yosemite-valley.jpg" },
+  { name: "Lake Louise", link: "./images/lake-louise.png" },
+  { name: "Bald Mountains", link: "./images/bald-mountains.png" },
+  { name: "Latemar", link: "./images/latemar.png" },
+  {
+    name: "Vanoise National Park",
+    link: "./images/vanoise-national-park.png",
+  },
+  { name: "Lago di Braies", link: "./images/lago-di-braies.png" },
+];
+const cardList = document.querySelector(".cards__list");
+const cardTemplate = document.querySelector("#card-template");
+const profileCloseButton = document.querySelector(".modal__close");
+const profileEditButton = document.querySelector(".profile__button");
+const profileSaveButoon = document.querySelector(".modal__save-button");
+const modal = document.querySelector(".modal");
+const modalForm = document.querySelector(".modal__form");
+const profilename = document.querySelector(".profile__name");
+const profilepara = document.querySelector(".profile__paragraph");
+const inputmodal = document.querySelector(".modal__input-one");
+const inputmodem = document.querySelector(".modal__input-two");
 
- profileEditButton.addEventListener("click", () => {
- modal.classList.add("modal__opened")
- })
-profileCloseButton.addEventListener("click", () =>{
-    modal.classList.remove("modal__opened")
-})
+profileEditButton.addEventListener("click", () => {
+  modal.classList.add("modal__opened");
+});
+profileCloseButton.addEventListener("click", () => {
+  modal.classList.remove("modal__opened");
+});
+modalForm.addEventListener("submit", (event) => {
+  profilename.textContent = inputmodal.value;
+  profilepara.textContent = inputmodem.value;
+  event.preventDefault();
+  console.log("saved");
+});
+for (let i = 0; i < initialCards.length; i++) {
+  const newCard = cardTemplate.content.cloneNode(true);
+  const newCardImage = newCard.querySelector(".card__photo");
+  newCardImage.src = initialCards[i].link;
+  newCardImage.alt = initialCards[i].name;
+  const newCardTitle = newCard.querySelector(".card__name");
+  newCardTitle.textContent = initialCards[i].name;
+  cardList.appendChild(newCard);
+}
