@@ -16,10 +16,10 @@ const profileEditButton = document.querySelector(".profile__button");
 const profileSaveButoon = document.querySelector(".modal__save-button");
 const modal = document.querySelector(".modal");
 const modalForm = document.querySelector(".modal__form");
-const profilename = document.querySelector(".profile__name");
-const profilepara = document.querySelector(".profile__paragraph");
-const inputmodal = document.querySelector(".modal__input-one");
-const inputmodem = document.querySelector(".modal__input-two");
+const profileName = document.querySelector(".profile__name");
+const profilePara = document.querySelector(".profile__paragraph");
+const inputModal = document.querySelector(".modal__input-one");
+const inputModem = document.querySelector(".modal__input-two");
 
 profileEditButton.addEventListener("click", () => {
   modal.classList.add("modal__opened");
@@ -28,8 +28,8 @@ profileCloseButton.addEventListener("click", () => {
   modal.classList.remove("modal__opened");
 });
 modalForm.addEventListener("submit", (event) => {
-  profilename.textContent = inputmodal.value;
-  profilepara.textContent = inputmodem.value;
+  profileName.textContent = inputModal.value;
+  profilePara.textContent = inputModem.value;
   event.preventDefault();
   console.log("saved");
 });
