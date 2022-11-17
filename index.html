@@ -11,7 +11,7 @@
   <body class="page">
     <header class="header page__section">
       <img
-        src="./images/header-photo.png"
+        src="./images/headerme.svg"
         alt="Around the U.S header"
         class="header__logo"
       />
@@ -40,23 +40,24 @@
     <div class="modal">
       <div class="modal__container">
         <img
-          src="./images/Close Icon.png"
+          src="./images/Close Icon.svg"
           alt="close button"
           class="modal__close"
         />
-        <form class="modal__form">
+        <form class="modal__form" name="box">
           <h3 class="modal__heading">Edit profile</h3>
           <input
             type="text"
-            class="modal__input modal__input-one"
+            class="modal__input modal__input_one"
             placeholder="Name"
+            name="bot"
           />
           <input
             type="text"
-            class="modal__input modal__input-two"
+            class="modal__input modal__input_two"
             placeholder="Description"
           />
-          <button class="modal__save-button">Save</button>
+          <button class="modal__save-button" type="submit">Save</button>
         </form>
       </div>
     </div>
@@ -69,6 +70,6 @@
         </div>
       </li>
     </template>
+    <script src="./scripts/index.js"></script>
   </body>
-  <script src="./scripts/index.js"></script>
 </html>

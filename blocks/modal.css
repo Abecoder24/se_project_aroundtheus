@@ -17,7 +17,7 @@
 }
 .modal__heading {
   font-size: 24px;
-  font-family: inter;
+  font-family: "Inter", sans-serif;
   font-weight: 900;
   line-height: 29.05px;
   color: black;
@@ -34,12 +34,14 @@
   position: relative;
   border-radius: 10px;
   padding: 34px 36px;
+  box-sizing: border-box;
 }
 .modal__input {
   width: 100%;
   margin: 0 auto 48px auto;
   width: 358px;
   height: 27px;
+  font-family: "Inter", sans-serif;
 }
 .modal__form {
   display: flex;
@@ -47,15 +49,23 @@
 }
 .modal__save-button {
   height: 50.15px;
-  width: 358px;
+  width: 100%;
   margin: auto;
   background-color: black;
   color: white;
   font-family: "Inter", sans-serif;
-  margin-bottom: 36px;
 }
-.modal__opened {
+.modal_opened {
   display: flex;
   opacity: 1;
-  pointer-events: all;
+}
+.modal__input_one {
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+}
+.modal__input_two {
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
 }

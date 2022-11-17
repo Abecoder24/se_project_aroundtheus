@@ -33,7 +33,6 @@
   display: flex;
   border-radius: 50%;
   object-fit: cover;
-  background-position: center;
   margin-right: 30px;
 }
 .profile__name {
@@ -58,7 +57,7 @@
   max-width: 415px;
 }
 .profile__plus-button {
-  background-image: url(../images/plus\ button.png);
+  background-image: url(../images/plus.svg);
   background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
@@ -105,7 +104,6 @@
     margin: 0px;
     font-size: 14px;
     line-height: 17px;
-    margin-top: 14px;
   }
   .profile__plus-button {
     width: 100%;
@@ -130,15 +128,7 @@
 
   .profile__name {
     font-size: 22px;
-    line-height: 16px;
+    line-height: 27px;
     max-width: 196px;
-  }
-  .profile__image {
-    margin-left: 10px;
-  }
-}
-@media screen and (max-width: 1140px) {
-  .profile__section {
-    max-width: calc(100% - 40px);
   }
 }

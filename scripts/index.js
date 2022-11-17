@@ -18,27 +18,38 @@ const modal = document.querySelector(".modal");
 const modalForm = document.querySelector(".modal__form");
 const profileName = document.querySelector(".profile__name");
 const profilePara = document.querySelector(".profile__paragraph");
-const inputModal = document.querySelector(".modal__input-one");
-const inputModem = document.querySelector(".modal__input-two");
+const inputModal = document.querySelector(".modal__input_one");
+const inputModem = document.querySelector(".modal__input_two");
 
-profileEditButton.addEventListener("click", () => {
-  modal.classList.add("modal__opened");
-});
-profileCloseButton.addEventListener("click", () => {
-  modal.classList.remove("modal__opened");
-});
-modalForm.addEventListener("submit", (event) => {
+const openModal = () => {
+  inputModal.value = profileName.textContent;
+  inputModem.value = profilePara.textContent;
+  modal.classList.add("modal_opened");
+};
+const closedModal = () => {
+  modal.classList.remove("modal_opened");
+};
+
+const profileSubmit = (event) => {
+  event.preventDefault();
   profileName.textContent = inputModal.value;
   profilePara.textContent = inputModem.value;
-  event.preventDefault();
-  console.log("saved");
-});
-for (let i = 0; i < initialCards.length; i++) {
-  const newCard = cardTemplate.content.cloneNode(true);
-  const newCardImage = newCard.querySelector(".card__photo");
-  newCardImage.src = initialCards[i].link;
-  newCardImage.alt = initialCards[i].name;
-  const newCardTitle = newCard.querySelector(".card__name");
-  newCardTitle.textContent = initialCards[i].name;
-  cardList.appendChild(newCard);
-}
+  console.log("saved", event);
+};
+
+profileEditButton.addEventListener("click", openModal);
+profileCloseButton.addEventListener("click", closedModal);
+modalForm.addEventListener("submit", profileSubmit);
+
+const getCardElement = () => {
+  for (let i = 0; i < initialCards.length; i++) {
+    const newCard = cardTemplate.content.cloneNode(true);
+    const newCardImage = newCard.querySelector(".card__photo");
+    newCardImage.src = initialCards[i].link;
+    newCardImage.alt = initialCards[i].name;
+    const newCardTitle = newCard.querySelector(".card__name");
+    newCardTitle.textContent = initialCards[i].name;
+    cardList.appendChild(newCard);
+  }
+};
+getCardElement();
