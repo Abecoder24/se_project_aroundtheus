@@ -17,39 +17,40 @@ const profileSaveButoon = document.querySelector(".modal__save-button");
 const modal = document.querySelector(".modal");
 const modalForm = document.querySelector(".modal__form");
 const profileName = document.querySelector(".profile__name");
-const profilePara = document.querySelector(".profile__paragraph");
-const inputModal = document.querySelector(".modal__input_one");
-const inputModem = document.querySelector(".modal__input_two");
+const profileParagraph = document.querySelector(".profile__paragraph");
+const inputName = document.querySelector(".modal__input_one_one");
+const inputDecsription = document.querySelector(".modal__input_two_two");
 
 const openModal = () => {
-  inputModal.value = profileName.textContent;
-  inputModem.value = profilePara.textContent;
+  inputName.value = profileName.textContent;
+  inputDecsription.value = profileParagraph.textContent;
   modal.classList.add("modal_opened");
 };
-const closedModal = () => {
+const closeModal = () => {
   modal.classList.remove("modal_opened");
 };
 
 const profileSubmit = (event) => {
   event.preventDefault();
-  profileName.textContent = inputModal.value;
-  profilePara.textContent = inputModem.value;
-  console.log("saved", event);
+  profileName.textContent = inputName.value;
+  profileParagraph.textContent = inputDecsription.value;
+  modal.classList.remove("modal_opened");
 };
 
 profileEditButton.addEventListener("click", openModal);
-profileCloseButton.addEventListener("click", closedModal);
+profileCloseButton.addEventListener("click", closeModal);
 modalForm.addEventListener("submit", profileSubmit);
 
-const getCardElement = () => {
-  for (let i = 0; i < initialCards.length; i++) {
-    const newCard = cardTemplate.content.cloneNode(true);
-    const newCardImage = newCard.querySelector(".card__photo");
-    newCardImage.src = initialCards[i].link;
-    newCardImage.alt = initialCards[i].name;
-    const newCardTitle = newCard.querySelector(".card__name");
-    newCardTitle.textContent = initialCards[i].name;
-    cardList.appendChild(newCard);
-  }
+const getCardElement = (data) => {
+  const newCard = cardTemplate.content.cloneNode(true);
+  const newCardImage = newCard.querySelector(".card__photo");
+  newCardImage.src = data.link;
+  newCardImage.alt = data.name;
+  const newCardTitle = newCard.querySelector(".card__name");
+  newCardTitle.textContent = data.name;
+  return newCard;
 };
-getCardElement();
+for (let i = 0; i < initialCards.length; i++) {
+  const card = getCardElement(initialCards[i]);
+  cardList.appendChild(card);
+}

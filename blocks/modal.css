@@ -4,7 +4,7 @@
   left: 0;
   bottom: 0;
   position: fixed;
-  background: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   display: none;
   align-items: center;
   justify-content: center;
@@ -14,6 +14,10 @@
   position: absolute;
   top: -35px;
   right: -32px;
+  background: transparent url(../images/newnew.svg) no-repeat;
+  height: 40px;
+  width: 40px;
+  border: none;
 }
 .modal__heading {
   font-size: 24px;
@@ -41,6 +45,9 @@
   margin: 0 auto 48px auto;
   height: 27px;
   font-family: "Inter", sans-serif;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
 }
 .modal__form {
   display: flex;
@@ -58,14 +65,4 @@
 .modal_opened {
   display: flex;
   opacity: 1;
-}
-.modal__input_one {
-  border-top: 0;
-  border-right: 0;
-  border-left: 0;
-}
-.modal__input_two {
-  border-top: 0;
-  border-right: 0;
-  border-left: 0;
 }
