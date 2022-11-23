@@ -79,3 +79,12 @@
   display: flex;
   opacity: 1;
 }
+@media screen and (max-width: 480px) {
+  .modal {
+    height: 322px;
+    width: 282px;
+    position: absolute;
+    margin: auto;
+    margin-top: 123px;
+  }
+}
