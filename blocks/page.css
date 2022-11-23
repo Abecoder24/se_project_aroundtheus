@@ -9,3 +9,7 @@
   position: relative;
   margin: 0 auto;
 }
+.page__content {
+  padding-right: 19px;
+  padding-left: 19px;
+}

@@ -9,13 +9,18 @@
   display: none;
   align-items: center;
   justify-content: center;
+  padding-left: 19px;
+  padding-right: 19px;
 }
 .modal__close {
   color: #ffffff;
   position: absolute;
-  top: -35px;
-  right: -32px;
-  background: transparent url(../images/newnew.svg) no-repeat;
+  top: -50px;
+  right: -50px;
+  background-image: url(../images/newnew.svg);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: contain;
   height: 40px;
   width: 40px;
   border: none;
@@ -79,12 +84,11 @@
   display: flex;
   opacity: 1;
 }
-@media screen and (max-width: 480px) {
-  .modal {
-    height: 322px;
-    width: 282px;
-    position: absolute;
-    margin: auto;
-    margin-top: 123px;
+@media screen and (max-width: 545px) {
+  .modal__close {
+    right: 0px;
+    width: 26px;
+    height: 26px;
+    top: -41px;
   }
 }
