@@ -3,6 +3,7 @@
   align-items: center;
   padding-top: 40px;
   font-family: "Inter", sans-serif;
+  gap: 30px;
 }
 .profile__info {
   display: grid;
@@ -11,6 +12,7 @@
     "description description";
   grid-template-columns: minmax(auto, 373px) auto;
   gap: 9px 17px;
+  align-items: center;
 }
 .profile__button {
   background-image: url(../images/edit\ button.svg);
@@ -30,10 +32,8 @@
 .profile__image {
   width: 120px;
   height: 120px;
-  display: flex;
   border-radius: 50%;
   object-fit: cover;
-  margin-right: 30px;
 }
 .profile__name {
   font-size: 42px;
@@ -106,8 +106,8 @@
     line-height: 17px;
   }
   .profile__plus-button {
-    margin: 0;
     margin-top: 36px;
+    width: 100%;
   }
 
   .profile__info {
@@ -118,10 +118,7 @@
   .profile__name {
     max-width: 196px;
   }
-}
-
-@media screen and (max-width: 740px) {
-  .profile__plus-button {
-    width: 100%;
+  .profile__button {
+    margin-top: 0;
   }
 }

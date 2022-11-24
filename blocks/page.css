@@ -9,12 +9,9 @@
   position: relative;
   margin: 0 auto;
 }
-.page__content {
-  padding-right: 19px;
-  padding-left: 19px;
-}
+
 @media screen and (max-width: 1140px) {
   .page__section {
-    width: calc(100% - 140px);
+    width: calc(100% - 38px);
   }
 }

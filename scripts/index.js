@@ -17,8 +17,10 @@ const modal = document.querySelector(".modal");
 const modalForm = document.querySelector(".modal__form");
 const profileName = document.querySelector(".profile__name");
 const profileParagraph = document.querySelector(".profile__paragraph");
-const inputName = document.querySelector("#profileNameInput");
-const inputDecsription = document.querySelector("#profileDescriptionInput");
+const inputName = document.querySelector(".modal__input_type_name");
+const inputDecsription = document.querySelector(
+  ".modal__input_type_description"
+);
 
 const openModal = () => {
   inputName.value = profileName.textContent;
