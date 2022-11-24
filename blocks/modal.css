@@ -92,4 +92,19 @@
     height: 26px;
     top: -41px;
   }
+  .modal__container {
+    max-width: 282px;
+    min-height: 322px;
+  }
+  .modal__heading {
+    font-size: 18px;
+    line-height: 22px;
+    max-width: 238px;
+    margin-bottom: 75px;
+  }
+  .modal__save-button {
+    max-width: 238px;
+    min-height: 46px;
+    margin-bottom: 25px;
+  }
 }
