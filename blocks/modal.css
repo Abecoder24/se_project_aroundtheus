@@ -3,7 +3,7 @@
   top: 0px;
   right: 0;
   left: 0;
-  bottom: 0;
+  bottom: 195px;
   position: fixed;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   display: none;
@@ -90,5 +90,8 @@
     width: 26px;
     height: 26px;
     top: -41px;
+  }
+  .modal {
+    bottom: 580px;
   }
 }
