@@ -1,5 +1,5 @@
 .modal {
-  background: rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.5);
   top: 0px;
   right: 0;
   left: 0;
@@ -17,7 +17,8 @@
   position: absolute;
   top: -50px;
   right: -50px;
-  background-image: url(../images/newnew.svg);
+  background-image: url(../images/plus.svg);
+  transform: rotate(-45deg);
   background-repeat: no-repeat;
   background-color: transparent;
   background-size: contain;
@@ -95,6 +96,10 @@
   .modal__container {
     max-width: 282px;
     min-height: 322px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-right: 22px;
+    padding-left: 22px;
   }
   .modal__heading {
     font-size: 18px;
@@ -105,5 +110,6 @@
   .modal__save-button {
     max-width: 238px;
     min-height: 46px;
+    font-size: 14px;
   }
 }
