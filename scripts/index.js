@@ -1,4 +1,4 @@
-let initialCards = [
+const initialCards = [
   { name: "Yosemite Valley", link: "./images/yosemite-valley.jpg" },
   { name: "Lake Louise", link: "./images/lake-louise.png" },
   { name: "Bald Mountains", link: "./images/bald-mountains.png" },
@@ -9,6 +9,11 @@ let initialCards = [
   },
   { name: "Lago di Braies", link: "./images/lago-di-braies.png" },
 ];
+
+const addForm = document.querySelector("#add-form");
+const cardInputTitle = document.querySelector(".modal__input_type_title");
+const cardInputUrl = document.querySelector(".modal__input_type_url");
+const profileCardButton = document.querySelector(".profile__plus-button");
 const cardList = document.querySelector(".cards__list");
 const cardTemplate = document.querySelector("#card-template");
 const profileCloseButton = document.querySelector(".modal__close");
@@ -22,14 +27,25 @@ const inputDecsription = document.querySelector(
   ".modal__input_type_description"
 );
 
-const openModal = () => {
+// Input function may not need duplicated on line 50 - 54
+const inputFunction = () => {
   inputName.value = profileName.textContent;
   inputDecsription.value = profileParagraph.textContent;
+};
+
+// open modal ask question about id
+const openModal = (id) => {
+  const modal = document.getElementById(id);
   modal.classList.add("modal_opened");
+  modal.querySelector(".modal__close").addEventListener("click", closeModal);
 };
+
+// close modal
 const closeModal = () => {
-  modal.classList.remove("modal_opened");
+  document.querySelector(".modal_opened").classList.remove("modal_opened");
 };
+
+//Inputs
 
 const profileSubmit = (event) => {
   event.preventDefault();
@@ -37,21 +53,45 @@ const profileSubmit = (event) => {
   profileParagraph.textContent = inputDecsription.value;
   closeModal();
 };
+const newPlaceSubmit = (event) => {
+  event.preventDefault();
+  const data = {
+    name: cardInputTitle.value,
+    link: cardInputUrl.value,
+  };
+  const card = getCardElement(data);
+  cardList.appendChild(card);
+  closeModal();
+};
+//event listeners
+profileCardButton.addEventListener("click", () => openModal("add-modal"));
+profileEditButton.addEventListener("click", () => openModal("edit-modal"));
+addForm.addEventListener("submit", newPlaceSubmit);
 
-profileEditButton.addEventListener("click", openModal);
-profileCloseButton.addEventListener("click", closeModal);
 modalForm.addEventListener("submit", profileSubmit);
 
 const getCardElement = (data) => {
   const newCard = cardTemplate.content.cloneNode(true);
   const newCardImage = newCard.querySelector(".card__photo");
+  const likeCardButton = newCard.querySelector(".card__like-button");
+  const deleteCard = newCard.querySelector(".card__trash-button");
+  const newCardElement = newCard.querySelector(".card");
+
+  likeCardButton.addEventListener("click", () => {
+    likeCardButton.classList.toggle("card_background-color");
+  });
+  deleteCard.addEventListener("click", () => {
+    newCardElement.remove();
+  });
+
   newCardImage.src = data.link;
   newCardImage.alt = data.name;
   const newCardTitle = newCard.querySelector(".card__name");
   newCardTitle.textContent = data.name;
   return newCard;
 };
-for (let i = 0; i < initialCards.length; i++) {
-  const card = getCardElement(initialCards[i]);
+
+initialCards.forEach(function (object) {
+  const card = getCardElement(object);
   cardList.appendChild(card);
-}
+});

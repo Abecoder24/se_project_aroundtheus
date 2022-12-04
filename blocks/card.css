@@ -3,6 +3,7 @@
   border-radius: 10px;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
 }
 .card__photo {
   width: 282px;
@@ -40,5 +41,23 @@
   flex-shrink: 0;
 }
 .card__like-button:hover {
+  opacity: 0.5;
+}
+.card_background-color {
+  background-image: url(../images/darkheart.svg);
+}
+.card__trash-button {
+  background: transparent url(../images/Group.svg) center no-repeat;
+  width: 21px;
+  height: 18px;
+  border: none;
+  cursor: pointer;
+  transition: 0.8s;
+  flex-shrink: 0;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.card__trash-button:hover {
   opacity: 0.5;
 }
