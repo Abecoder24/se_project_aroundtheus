@@ -1,5 +1,5 @@
 const initialCards = [
-  { name: "Yosemite Valley", link: "./images/yosemite-valley.jpg" },
+  { name: "Yosemite Valley", link: "./images/yosemite.png" },
   { name: "Lake Louise", link: "./images/lake-louise.png" },
   { name: "Bald Mountains", link: "./images/bald-mountains.png" },
   { name: "Latemar", link: "./images/latemar.png" },
@@ -10,6 +10,8 @@ const initialCards = [
   { name: "Lago di Braies", link: "./images/lago-di-braies.png" },
 ];
 
+const previewTitle = document.querySelector(".modal__container_text");
+const previewImage = document.querySelector(".modal__preview-image");
 const addForm = document.querySelector("#add-form");
 const cardInputTitle = document.querySelector(".modal__input_type_title");
 const cardInputUrl = document.querySelector(".modal__input_type_url");
@@ -66,13 +68,22 @@ const newPlaceSubmit = (event) => {
 //event listeners
 profileCardButton.addEventListener("click", () => openModal("add-modal"));
 profileEditButton.addEventListener("click", () => openModal("edit-modal"));
+
 addForm.addEventListener("submit", newPlaceSubmit);
 
 modalForm.addEventListener("submit", profileSubmit);
+// previewModalCloseButton.addEventListener("click", () => toggle);
 
 const getCardElement = (data) => {
   const newCard = cardTemplate.content.cloneNode(true);
   const newCardImage = newCard.querySelector(".card__photo");
+  newCardImage.addEventListener("click", () => {
+    openModal("preview-modal");
+    previewImage.src = data.link;
+    previewImage.alt = data.name;
+    previewTitle.textContent = data.name;
+  });
+
   const likeCardButton = newCard.querySelector(".card__like-button");
   const deleteCard = newCard.querySelector(".card__trash-button");
   const newCardElement = newCard.querySelector(".card");
