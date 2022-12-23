@@ -10,7 +10,8 @@ const initialCards = [
   { name: "Lago di Braies", link: "./images/lago-di-braies.png" },
 ];
 
-const previewTitle = document.querySelector(".modal__container_text");
+const previewTitle = document.querySelector(".modal__container-text");
+console.log(previewTitle);
 const previewImage = document.querySelector(".modal__preview-image");
 const addForm = document.querySelector("#add-form");
 const cardInputTitle = document.querySelector(".modal__input_type_title");
@@ -62,12 +63,17 @@ const newPlaceSubmit = (event) => {
     link: cardInputUrl.value,
   };
   const card = getCardElement(data);
-  cardList.appendChild(card);
+  cardList.prepend(card);
+  addForm.reset();
   closeModal();
 };
 //event listeners
 profileCardButton.addEventListener("click", () => openModal("add-modal"));
-profileEditButton.addEventListener("click", () => openModal("edit-modal"));
+profileEditButton.addEventListener("click", () => {
+  inputName.value = profileName.textContent;
+  inputDecsription.value = profileParagraph.textContent;
+  openModal("edit-modal");
+});
 
 addForm.addEventListener("submit", newPlaceSubmit);
 
@@ -104,5 +110,5 @@ const getCardElement = (data) => {
 
 initialCards.forEach(function (object) {
   const card = getCardElement(object);
-  cardList.appendChild(card);
+  cardList.prepend(card);
 });
