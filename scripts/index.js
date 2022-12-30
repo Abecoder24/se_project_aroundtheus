@@ -31,7 +31,8 @@ const inputDecsription = document.querySelector(
 const previewModal = document.querySelector("#preview-modal");
 const addModal = document.querySelector("#add-modal");
 const editModal = document.querySelector("#edit-modal");
-
+const addModalCloseBtn = addModal.querySelector(".modal__close");
+const previewCloseBtn = previewModal.querySelector(".modal__close");
 // Input function may not need duplicated on line 50 - 54
 const fillProfileInputs = () => {
   inputName.value = profileName.textContent;
@@ -40,7 +41,6 @@ const fillProfileInputs = () => {
 // open modal ask question about id
 const openModal = (modal) => {
   modal.classList.add("modal_opened");
-  modal.querySelector(".modal__close").addEventListener("click", closeModal);
 };
 
 // close modal
@@ -71,6 +71,9 @@ const handlesNewCards = (event) => {
   closeModal();
 };
 //event listeners
+profileCloseButton.addEventListener("click", closeModal);
+addModalCloseBtn.addEventListener("click", closeModal);
+previewCloseBtn.addEventListener("click", closeModal);
 profileCardButton.addEventListener("click", () => openModal(addModal));
 profileEditButton.addEventListener("click", () => {
   inputName.value = profileName.textContent;
