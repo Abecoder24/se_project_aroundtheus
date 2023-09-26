@@ -11,7 +11,6 @@ const initialCards = [
 ];
 
 const previewTitle = document.querySelector(".modal__container-text");
-console.log(previewTitle);
 const previewImage = document.querySelector(".modal__preview-image");
 const addForm = document.querySelector("#add-form");
 const cardInputTitle = document.querySelector(".modal__input_type_title");
@@ -38,7 +37,7 @@ const fillProfileInputs = () => {
   inputName.value = profileName.textContent;
   inputDecsription.value = profileParagraph.textContent;
 };
-// open modal ask question about id
+
 const openModal = (modal) => {
   modal.classList.add("modal_opened");
 };
@@ -70,7 +69,19 @@ const handlesNewCards = (event) => {
   addForm.reset();
   closeModal();
 };
+
 //event listeners
+document.addEventListener("click", function (evt) {
+  if (evt.target.classList.contains("modal")) {
+    closeModal();
+  }
+});
+
+document.addEventListener("keydown", function (evt) {
+  if (evt.key === "Escape") {
+    closeModal();
+  }
+});
 profileCloseButton.addEventListener("click", closeModal);
 addModalCloseBtn.addEventListener("click", closeModal);
 previewCloseBtn.addEventListener("click", closeModal);
