@@ -104,7 +104,7 @@
 
 .modal__error_visible {
 }
-.modal__save-button {
+.modal__button {
   height: 50.15px;
   width: 100%;
   margin: auto;
@@ -120,7 +120,7 @@
   background-color: gray;
 }
 
-.modal__save-button:hover {
+.modal__button:hover {
   opacity: 0.8;
 }
 
