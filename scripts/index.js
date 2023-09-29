@@ -71,8 +71,8 @@ const handlesNewCards = (event) => {
 };
 
 //event listeners
-document.addEventListener("click", function (evt) {
-  if (evt.target.classList.contains("modal")) {
+document.getElementById("add-modal").addEventListener("click", function (e) {
+  if (e.target.classList.contains("modal")) {
     closeModal();
   }
 });
@@ -82,6 +82,7 @@ document.addEventListener("keydown", function (evt) {
     closeModal();
   }
 });
+
 profileCloseButton.addEventListener("click", closeModal);
 addModalCloseBtn.addEventListener("click", closeModal);
 previewCloseBtn.addEventListener("click", closeModal);
