@@ -40,6 +40,7 @@ const fillProfileInputs = () => {
 
 const openModal = (modal) => {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closeByEscape);
 };
 
 // close modal
@@ -48,6 +49,7 @@ const closeModal = () => {
   if (modal) {
     modal.classList.remove("modal_opened");
   }
+  document.removeEventListener("keydown", closeByEscape);
 };
 
 //Inputs
@@ -71,17 +73,19 @@ const handlesNewCards = (event) => {
 };
 
 //event listeners
-document.getElementById("add-modal").addEventListener("click", function (e) {
-  if (e.target.classList.contains("modal")) {
-    closeModal();
-  }
+document.querySelectorAll(".modal").forEach((e) => {
+  e.addEventListener("click", function (e) {
+    if (e.target.classList.contains("modal")) {
+      closeModal();
+    }
+  });
 });
 
-document.addEventListener("keydown", function (evt) {
+function closeByEscape(evt) {
   if (evt.key === "Escape") {
     closeModal();
   }
-});
+}
 
 profileCloseButton.addEventListener("click", closeModal);
 addModalCloseBtn.addEventListener("click", closeModal);
