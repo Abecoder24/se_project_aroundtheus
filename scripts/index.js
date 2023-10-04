@@ -1,3 +1,4 @@
+import Card from "./Card.js";
 const initialCards = [
   { name: "Yosemite Valley", link: "./images/yosemite.png" },
   { name: "Lake Louise", link: "./images/lake-louise.png" },
@@ -9,6 +10,10 @@ const initialCards = [
   },
   { name: "Lago di Braies", link: "./images/lago-di-braies.png" },
 ];
+
+const cardData = { name: "Yosemite Valley", link: "./images/yosemite.png" };
+
+const card = new Card(cardData, ".card");
 
 const previewTitle = document.querySelector(".modal__container-text");
 const previewImage = document.querySelector(".modal__preview-image");
