@@ -1,31 +1,28 @@
 export default class Card {
-  constructor({ name, link }, cardSelector, handleImageClick) {
-    this._name = name;
-    this._link = link;
+  constructor(data, cardSelector, handleImageClick) {
+    this._name = data.name;
+    this._link = data.link;
     this._cardSelector = cardSelector;
+
     this._handleImageClick = handleImageClick;
   }
 
-
-
   _setEventListeners() {
-    //".card__trash-button"
-    deleteCard = this._cardElement
-      .querySelector(".card__trash-button")
-      .addEventListener("click", () => {
-        this._handleLikeButton();
-      });
-    // ".card__like-button"
-    likeCardButton = this._cardElement
-      .querySelector(".card__like-button")
-      .addEventListener("clikc", () => {
-        this._handleDeleteButton();
-      });
+    const newCardImage = this._cardElement.querySelector(".card__photo");
+    const likeCardButton =
+      this._cardElement.querySelector(".card__like-button");
+    const deleteCard = this._cardElement.querySelector(".card__trash-button");
 
-    //   this._handleImageClick {
+    newCardImage.addEventListener("click", this._handleImageClick);
 
-    //   }
+    likeCardButton.addEventListener("click", () => {
+      likeCardButton.classList.toggle("card_background-color");
+    });
+    deleteCard.addEventListener("click", () => {
+      this._cardElement.remove();
+    });
   }
+
   _handleDeleteButton() {
     this._cardElement.remove();
   }
@@ -38,13 +35,17 @@ export default class Card {
   }
 
   getView() {
-    this._cardElement = document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card")
+    this._cardElement = this._cardSelector.content
+      .querySelector(".card")
       .cloneNode(true);
     this._setEventListeners();
+    // -------------------------------
+    // set the data
+    this._cardImage = this._cardElement.querySelector(".card__photo");
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
+    const newCardTitle = this._cardElement.querySelector(".card__name");
+    newCardTitle.textContent = this._name;
+    return this._cardElement;
   }
-}
-class FormValidator {
-    constructor()
 }

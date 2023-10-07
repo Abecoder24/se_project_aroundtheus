@@ -1,4 +1,6 @@
+import FormValidator from "./FormValidator.js";
 import Card from "./Card.js";
+
 const initialCards = [
   { name: "Yosemite Valley", link: "./images/yosemite.png" },
   { name: "Lake Louise", link: "./images/lake-louise.png" },
@@ -10,10 +12,6 @@ const initialCards = [
   },
   { name: "Lago di Braies", link: "./images/lago-di-braies.png" },
 ];
-
-const cardData = { name: "Yosemite Valley", link: "./images/yosemite.png" };
-
-const card = new Card(cardData, ".card");
 
 const previewTitle = document.querySelector(".modal__container-text");
 const previewImage = document.querySelector(".modal__preview-image");
@@ -71,8 +69,15 @@ const handlesNewCards = (event) => {
     name: cardInputTitle.value,
     link: cardInputUrl.value,
   };
-  const card = getCardElement(data);
-  cardList.prepend(card);
+  // const card = getCardElement(data);
+  const card = new Card(data, cardTemplate, () => {
+    openModal(previewModal);
+    previewImage.src = data.link;
+    previewImage.alt = data.name;
+    previewTitle.textContent = data.name;
+  });
+
+  cardList.prepend(card.getView());
   addForm.reset();
   closeModal();
 };
@@ -107,35 +112,26 @@ addForm.addEventListener("submit", handlesNewCards);
 profileForm.addEventListener("submit", handlesProfileFormSubmit);
 // previewModalCloseButton.addEventListener("click", () => toggle);
 
-const getCardElement = (data) => {
-  const newCard = cardTemplate.content.cloneNode(true);
-  const newCardImage = newCard.querySelector(".card__photo");
-  newCardImage.addEventListener("click", () => {
+initialCards.forEach((data) => {
+  const card = new Card(data, cardTemplate, () => {
     openModal(previewModal);
     previewImage.src = data.link;
     previewImage.alt = data.name;
     previewTitle.textContent = data.name;
   });
-
-  const likeCardButton = newCard.querySelector(".card__like-button");
-  const deleteCard = newCard.querySelector(".card__trash-button");
-  const newCardElement = newCard.querySelector(".card");
-
-  likeCardButton.addEventListener("click", () => {
-    likeCardButton.classList.toggle("card_background-color");
-  });
-  deleteCard.addEventListener("click", () => {
-    newCardElement.remove();
-  });
-
-  newCardImage.src = data.link;
-  newCardImage.alt = data.name;
-  const newCardTitle = newCard.querySelector(".card__name");
-  newCardTitle.textContent = data.name;
-  return newCard;
-};
-
-initialCards.forEach(function (object) {
-  const card = getCardElement(object);
-  cardList.prepend(card);
+  cardList.prepend(card.getView());
 });
+
+// Using FormValidator Class
+const config = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  ///^make it red
+  errorClass: "modal__error_visible",
+};
+const formEls = [...document.querySelectorAll(config.formSelector)];
+
+const FormValidation = new FormValidator(config, formEls);
