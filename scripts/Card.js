@@ -16,10 +16,10 @@ export default class Card {
     newCardImage.addEventListener("click", this._handleImageClick);
 
     likeCardButton.addEventListener("click", () => {
-      likeCardButton.classList.toggle("card_background-color");
+      this._handleLikeButton();
     });
     deleteCard.addEventListener("click", () => {
-      this._cardElement.remove();
+      this._handleDeleteButton();
     });
   }
 
@@ -27,7 +27,7 @@ export default class Card {
     this._cardElement.remove();
   }
 
-  handleLikeButton() {
+  _handleLikeButton() {
     // can i say likeCardButton.classList.toggle?
     this._cardElement
       .querySelector(".card__like-button")

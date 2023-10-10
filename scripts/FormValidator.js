@@ -1,8 +1,7 @@
 export default class FormValidator {
-  constructor(config, formEls) {
+  constructor(config, formEl) {
     this.config = config;
-    this.formEls = formEls;
-    this._enableValidation();
+    this.formEl = formEl;
   }
 
   _hideInputError(formEl, inputEl) {
@@ -52,14 +51,13 @@ export default class FormValidator {
     });
   }
 
-  _enableValidation(options) {
+  enableValidation() {
     // formEl is one of the elements for formEls
-    this.formEls.forEach((formEl) => {
-      formEl.addEventListener("submit", (e) => {
-        e.preventDefault();
-      });
 
-      this._setEventListeners(formEl, options);
+    this.formEl.addEventListener("submit", (e) => {
+      e.preventDefault();
     });
+
+    this._setEventListeners(this.formEl, this.config);
   }
 }

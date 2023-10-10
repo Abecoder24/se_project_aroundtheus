@@ -112,14 +112,18 @@ addForm.addEventListener("submit", handlesNewCards);
 profileForm.addEventListener("submit", handlesProfileFormSubmit);
 // previewModalCloseButton.addEventListener("click", () => toggle);
 
-initialCards.forEach((data) => {
-  const card = new Card(data, cardTemplate, () => {
+function createCard(data) {
+  const cardElement = new Card(data, cardTemplate, () => {
     openModal(previewModal);
     previewImage.src = data.link;
     previewImage.alt = data.name;
     previewTitle.textContent = data.name;
   });
-  cardList.prepend(card.getView());
+  return cardElement.getView();
+}
+initialCards.forEach((data) => {
+  const card = createCard(data);
+  cardList.prepend(card);
 });
 
 // Using FormValidator Class
@@ -134,4 +138,6 @@ const config = {
 };
 const formEls = [...document.querySelectorAll(config.formSelector)];
 
-const FormValidation = new FormValidator(config, formEls);
+formEls.forEach((el) => {
+  new FormValidator(config, el).enableValidation();
+});
