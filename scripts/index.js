@@ -74,14 +74,10 @@ const handlesNewCards = (event) => {
     link: cardInputUrl.value,
   };
   // const card = getCardElement(data);
-  const card = new Card(data, cardTemplate, () => {
-    openModal(previewModal);
-    previewImage.src = data.link;
-    previewImage.alt = data.name;
-    previewTitle.textContent = data.name;
-  });
+  const card = createCard(data);
 
-  cardList.prepend(card.getView());
+  cardList.prepend(card);
+
   addForm.reset();
   closeModal();
 };
