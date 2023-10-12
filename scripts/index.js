@@ -53,6 +53,10 @@ const closeModal = () => {
     modal.classList.remove("modal_opened");
   }
   document.removeEventListener("keydown", closeByEscape);
+  addForm
+    .querySelector(".modal__button")
+    .classList.add("modal__button_disabled");
+  addForm.querySelector(".modal__button").disabled = true;
 };
 
 //Inputs
@@ -102,8 +106,7 @@ addModalCloseBtn.addEventListener("click", closeModal);
 previewCloseBtn.addEventListener("click", closeModal);
 profileCardButton.addEventListener("click", () => openModal(addModal));
 profileEditButton.addEventListener("click", () => {
-  inputName.value = profileName.textContent;
-  inputDecsription.value = profileParagraph.textContent;
+  fillProfileInputs();
   openModal(editModal);
 });
 
