@@ -53,10 +53,6 @@ const closeModal = () => {
     modal.classList.remove("modal_opened");
   }
   document.removeEventListener("keydown", closeByEscape);
-  addForm
-    .querySelector(".modal__button")
-    .classList.add("modal__button_disabled");
-  addForm.querySelector(".modal__button").disabled = true;
 };
 
 //Inputs
@@ -137,6 +133,5 @@ const config = {
 };
 const formEls = [...document.querySelectorAll(config.formSelector)];
 
-formEls.forEach((el) => {
-  new FormValidator(config, el).enableValidation();
-});
+new FormValidator(config, formEls[0]).enableValidation();
+new FormValidator(config, formEls[1]).enableValidation();
