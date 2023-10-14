@@ -57,7 +57,7 @@ export default class FormValidator {
     this.formEl.addEventListener("submit", (e) => {
       e.preventDefault();
       this.formEl
-        .querySelector(".modal__button")
+        .querySelector(this.config.submitButtonSelector)
         .classList.add("modal__button_disabled");
       this.formEl.querySelector(".modal__button").disabled = true;
     });

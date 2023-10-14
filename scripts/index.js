@@ -133,5 +133,6 @@ const config = {
 };
 const formEls = [...document.querySelectorAll(config.formSelector)];
 
-new FormValidator(config, formEls[0]).enableValidation();
-new FormValidator(config, formEls[1]).enableValidation();
+formEls.forEach((el) => {
+  new FormValidator(config, el).enableValidation();
+});
