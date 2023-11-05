@@ -167,3 +167,15 @@
     max-height: 299px;
   }
 }
+
+.modal__close-image-preview {
+  width: 30px;
+  height: 30px;
+  right: -36px;
+  top: -28px;
+  position: absolute;
+}
+
+.modal__image-container {
+  position: relative;
+}
